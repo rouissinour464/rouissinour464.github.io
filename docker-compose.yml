@@ -1,0 +1,13 @@
+services:
+  cv:
+    image: docker.io/nour292/cv:v1
+    container_name: cv_site
+    restart: unless-stopped
+    ports:
+      - "8005:80"   # map host 8005 -> container 80
+    networks:
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
