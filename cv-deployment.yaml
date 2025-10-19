@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cv-deployment
+  labels:
+    app: cv
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cv
+  template:
+    metadata:
+      labels:
+        app: cv
+    spec:
+      containers:
+        - name: cv
+          image: nour292/cv:v1
+          ports:
+            - containerPort: 80
